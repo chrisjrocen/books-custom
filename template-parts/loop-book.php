@@ -5,17 +5,17 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(array('book', 'left', 'one-third')); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'book', 'left', 'one-third' ) ); ?>>
 
 	<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 
-	<?php if (has_post_thumbnail()) { ?>
+	<?php if ( has_post_thumbnail() ) { ?>
 
 		<a href="<?php the_permalink(); ?>">
 
-			<?php the_post_thumbnail('medium', array(
+			<?php the_post_thumbnail( 'medium', array(
 				'class' => 'left',
-				'alt'	=> get_the_title()
+				'alt'	=> get_the_title(),
 			));
 
 			get_the_post_thumbnail( null, $size, $attr );
