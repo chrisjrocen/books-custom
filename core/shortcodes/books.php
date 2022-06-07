@@ -25,9 +25,9 @@ add_action( 'init', 'register_chrx_books_shortcode' );
  */
 function render_books_page( $atts ) {
 
-	ob_start();
-		include plugin_dir_path( dirname( __FILE__, 2 ) ) . 'template-parts/loop-book.php';
-	echo ob_get_clean();
+	// ob_start();
+	// 	include plugin_dir_path( dirname( __FILE__, 2 ) ) . 'template-parts/loop-book.php';
+	// echo ob_get_clean();
 
 	$args = array(
 		'post_type'   => 'chrx_book',
@@ -40,12 +40,25 @@ function render_books_page( $atts ) {
 	$the_query = new WP_Query( $args );
 
 	if ( $the_query->have_posts() ) {
+
+
+
 		echo '<ul>';
 		while ( $the_query->have_posts() ) {
 			$the_query->the_post();
+			
 			echo '<li>' . esc_attr( get_the_title() ) . '</li>';
+
+			// chrx_book_loop_book();
 		}
+
+
+
 		echo '</ul>';
+
+
+
+
 	} else {
 		printf( 'No books found' );
 	}

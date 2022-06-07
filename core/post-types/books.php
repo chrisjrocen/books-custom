@@ -2,7 +2,7 @@
 /**
  * Add Movie custom Post Type.
  *
- * @package Leisure_Tym
+ * @package chrxbooks.
  */
 
 /**
@@ -13,8 +13,7 @@
 /*****************************************************************************
 Register an extra post type for content with taxonomy
  *****************************************************************************/
-function chrx_register_post_type()
-{
+function chrx_register_post_type() {
 
 	// book 
 	$labels = array(

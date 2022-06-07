@@ -2,6 +2,8 @@
 
 /**
  * The Loop for the books archive page
+ *
+ * @package chrxbooks.
  */
 ?>
 
@@ -18,7 +20,7 @@
 				'alt'	=> get_the_title()
 			));
 
-			get_the_post_thumbnail( null, $size, $attr );
+			get_the_post_thumbnail( null, 'post-thumbnail', '' );
 			
 			?>
 
