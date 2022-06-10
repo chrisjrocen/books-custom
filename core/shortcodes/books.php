@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Display books page.
  *
@@ -10,11 +11,27 @@
  *
  * @return void
  */
-function register_chrx_books_shortcode() {
-	add_shortcode( 'chrx-books', 'render_books_page' );
+function register_chrx_books_shortcode()
+{
+	add_shortcode('chrx-books', 'render_books_page');
 }
 
-add_action( 'init', 'register_chrx_books_shortcode' );
+add_action('init', 'register_chrx_books_shortcode');
+
+
+/**
+ * Enqueue Styles and Scripts for Slider shortcode.
+ *
+ * @return void
+ */
+function chrx_enqueue_scripts() {
+	wp_enqueue_style( 'css-styles', plugin_dir_url( __FILE__ ) . 'assets/build/css/base.css', array(), '1.0.0', 'all' );
+
+}
+
+add_action( 'wp_enqueue_scripts', 'chrx_enqueue_scripts', 10 );
+
+
 
 /**
  * Query and display movies
@@ -23,12 +40,8 @@ add_action( 'init', 'register_chrx_books_shortcode' );
  *
  * @return void
  */
-function render_books_page( $atts ) {
-
-	// ob_start();
-	// 	include plugin_dir_path( dirname( __FILE__, 2 ) ) . 'template-parts/loop-book.php';
-	// echo ob_get_clean();
-
+function render_books_page($atts)
+{
 	$args = array(
 		'post_type'   => 'chrx_book',
 		'post_status' => 'publish',
@@ -37,30 +50,19 @@ function render_books_page( $atts ) {
 	);
 
 	// Query for movies.
-	$the_query = new WP_Query( $args );
+	$the_query = new WP_Query($args);
 
-	if ( $the_query->have_posts() ) {
+	if ($the_query->have_posts()) {
 
-
-
-		echo '<ul>';
-		while ( $the_query->have_posts() ) {
+		while ($the_query->have_posts()) {
 			$the_query->the_post();
-			
-			echo '<li>' . esc_attr( get_the_title() ) . '</li>';
 
-			// chrx_book_loop_book();
+			chrx_loop();
+
 		}
-
-
-
-		echo '</ul>';
-
-
-
-
+		
 	} else {
-		printf( 'No books found' );
+		printf('No books found');
 	}
 	/* Restore original Post Data */
 	wp_reset_postdata();
