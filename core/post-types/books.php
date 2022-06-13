@@ -2,14 +2,9 @@
 /**
  * Add Movie custom Post Type.
  *
- * @package Leisure_Tym
+ * @package chrxbooks.
  */
 
-/**
- * Add Movie custom Post Type.
- *
- * @return void
- */
 /*****************************************************************************
 Register an extra post type for content with taxonomy
  *****************************************************************************/

@@ -2,6 +2,6 @@
 /**
  * Add all WordPress filters and action hooks here.
  *
- * @package LeisuretymMovieSlider.
+ * @package chrxbooks.
  */
 

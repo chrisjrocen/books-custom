@@ -1,8 +1,8 @@
-# Copyright (C) 2022 Streamline_Data_Sync
-# This file is distributed under the same license as the Streamline_Data_Sync package.
+# Copyright (C) 2022 chrxbooks
+# This file is distributed under the same license as the chrxbooks package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Streamline_Data_Sync\n"
+"Project-Id-Version: chrxbooks\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,4 +13,3 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-

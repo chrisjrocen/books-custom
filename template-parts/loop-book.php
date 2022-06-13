@@ -2,32 +2,41 @@
 
 /**
  * The Loop for the books archive page
+ *
+ * @package chrxbooks.
  */
-?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'book', 'left', 'one-third' ) ); ?>>
+/**
+ * To display one book
+ *
+ * @return void
+ */
+function chrx_loop() {
 
-	<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+	echo '<article class="book-card"><h2>' . esc_attr(get_the_title()) . '</h2>';
 
-	<?php if ( has_post_thumbnail() ) { ?>
+	if (has_post_thumbnail()) {
 
-		<a href="<?php the_permalink(); ?>">
+		echo '<a href="">';
+		
+		the_post_thumbnail('medium', array(
+			'class' => 'book-card',
+			'alt'	=> get_the_title()
+		));
 
-			<?php the_post_thumbnail( 'medium', array(
-				'class' => 'left',
-				'alt'	=> get_the_title(),
-			));
+		//get_the_post_thumbnail(null, 'post-thumbnail', '');
 
-			get_the_post_thumbnail( null, $size, $attr );
-			
-			?>
+		echo '</a>';
+	}
 
-		</a>
+	the_excerpt();
 
-	<?php } ?>
+	?>
+	<a href="     ">
+	<button class="chrx-button">More</button>
+	</a>
+	<?
 
-	<?php the_excerpt(); ?>
-
-	<div class="button"><a href="<?php the_permalink(); ?>">Explore the Book</a></div>
-
-</article>
+	
+	echo '</article>';
+}
