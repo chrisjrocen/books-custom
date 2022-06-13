@@ -25,7 +25,7 @@ add_action('init', 'register_chrx_books_shortcode');
  * @return void
  */
 function chrx_enqueue_scripts() {
-	wp_enqueue_style( 'css-styles', plugin_dir_url( __FILE__ ) . 'assets/build/css/base.css', array(), '1.0.0', 'all' );
+	wp_enqueue_style( 'base.css', BOOKS_CUSTOM_URL . 'assets/build/css/base.css' , array(), '1.0.0', 'all' );
 
 }
 
@@ -34,7 +34,7 @@ add_action( 'wp_enqueue_scripts', 'chrx_enqueue_scripts', 10 );
 
 
 /**
- * Query and display movies
+ * Query and display books
  *
  * @param array $atts Attributes passed from the Shortcode. Default empty.
  *
@@ -56,8 +56,9 @@ function render_books_page($atts)
 
 		while ($the_query->have_posts()) {
 			$the_query->the_post();
-
+			
 			chrx_loop();
+			
 
 		}
 		
@@ -67,3 +68,10 @@ function render_books_page($atts)
 	/* Restore original Post Data */
 	wp_reset_postdata();
 }
+
+/**
+ * ob_start();
+ * include LEISURE_TYM_PLUGIN_PATH . 'template-parts/leisuretym-slider.php';
+ * $output = ob_get_clean();
+ * return $output;
+ */

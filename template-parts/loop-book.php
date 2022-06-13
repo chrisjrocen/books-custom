@@ -13,23 +13,30 @@
  */
 function chrx_loop() {
 
-		echo '<article class"book-card"><h2>' . esc_attr(get_the_title()) . '</h2>';
+	echo '<article class="book-card"><h2>' . esc_attr(get_the_title()) . '</h2>';
 
-		if (has_post_thumbnail()) {
-			echo '<a href="' . the_permalink() . ';">';
-			the_post_thumbnail('medium', array(
-				'class' => 'book-card',
-				'alt'	=> get_the_title()
-			));
+	if (has_post_thumbnail()) {
 
-			get_the_post_thumbnail(null, 'post-thumbnail', '');
+		echo '<a href="">';
+		
+		the_post_thumbnail('medium', array(
+			'class' => 'book-card',
+			'alt'	=> get_the_title()
+		));
 
-			echo '</a>';
-		}
+		//get_the_post_thumbnail(null, 'post-thumbnail', '');
 
-		the_excerpt();
+		echo '</a>';
+	}
 
-		echo '<div><a class="chrx-button" href="' . the_permalink() . '; Explore the Book' . '</a></div>';
+	the_excerpt();
 
-		echo '</article>';
+	?>
+	<a href="     ">
+	<button class="chrx-button">More</button>
+	</a>
+	<?
+
+	
+	echo '</article>';
 }
