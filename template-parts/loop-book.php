@@ -13,7 +13,7 @@
  */
 function chrx_loop() {
 
-	echo '<article class="book-card"><h2>' . esc_attr(get_the_title()) . '</h2>';
+	echo '<article class="card-container"><h2>' . esc_attr(get_the_title()) . '</h2>';
 
 	if (has_post_thumbnail()) {
 

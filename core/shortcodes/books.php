@@ -11,13 +11,11 @@
  *
  * @return void
  */
-function register_chrx_books_shortcode()
-{
+function register_chrx_books_shortcode() {
 	add_shortcode('chrx-books', 'render_books_page');
 }
 
 add_action('init', 'register_chrx_books_shortcode');
-
 
 /**
  * Enqueue Styles and Scripts for Slider shortcode.
@@ -30,7 +28,6 @@ function chrx_enqueue_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'chrx_enqueue_scripts', 10 );
-
 
 
 /**
@@ -49,29 +46,29 @@ function render_books_page($atts)
 		'order'       => 'ASC',
 	);
 
-	// Query for movies.
+	// Query for books.
 	$the_query = new WP_Query($args);
 
 	if ($the_query->have_posts()) {
 
+		echo '<div class="main-container">';
+
 		while ($the_query->have_posts()) {
 			$the_query->the_post();
+
+			
 			
 			chrx_loop();
-			
 
+			
+			
 		}
 		
+		echo '</div>';
+
 	} else {
 		printf('No books found');
 	}
 	/* Restore original Post Data */
 	wp_reset_postdata();
 }
-
-/**
- * ob_start();
- * include LEISURE_TYM_PLUGIN_PATH . 'template-parts/leisuretym-slider.php';
- * $output = ob_get_clean();
- * return $output;
- */
