@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Display books page.
  *
@@ -12,10 +11,10 @@
  * @return void
  */
 function register_chrx_books_shortcode() {
-	add_shortcode('chrx-books', 'render_books_page');
+	add_shortcode( 'chrx-books', 'render_books_page' );
 }
 
-add_action('init', 'register_chrx_books_shortcode');
+add_action( 'init', 'register_chrx_books_shortcode' );
 
 /**
  * Enqueue Styles and Scripts for Slider shortcode.
@@ -56,12 +55,8 @@ function render_books_page($atts)
 		while ($the_query->have_posts()) {
 			$the_query->the_post();
 
-			
-			
-			chrx_loop();
-
-			
-			
+			chrx_loop_through_books();
+	
 		}
 		
 		echo '</div>';

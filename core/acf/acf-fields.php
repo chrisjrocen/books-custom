@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Custom Fields for the lms slider CPT.
  *
