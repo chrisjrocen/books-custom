@@ -6,6 +6,8 @@
  * @packagechrxbooks.
  *
  * TODO: Document all the methods well.
+ *
+ * @package chrxbooks.
  */
 
 /**
